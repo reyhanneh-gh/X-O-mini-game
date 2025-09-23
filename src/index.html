@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XO mini game</title>
+    <link rel="stylesheet" href="style/master.css">
+    <link rel="stylesheet" href="style/output.css">
+</head>
+
+<body class="w-full h-[100vh] flex justify-center items-center bg-gray-900">
+    <section id="box"
+        class="size-[300px] md:size-[500px] flex flex-wrap place-content-center border border-white rounded-[10px] overflow-hidden *:size-1/3 *:border *:border-white *:relative">
+        <div>
+            <p id="x">X</p>
+            <p id="o">O</p>
+        </div>
+        <div>
+            <p id="x">X</p>
+            <p id="o">O</p>
+        </div>
+        <div>
+            <p id="x">X</p>
+            <p id="o">O</p>
+        </div>
+        <div>
+            <p id="x">X</p>
+            <p id="o">O</p>
+        </div>
+        <div>
+            <p id="x">X</p>
+            <p id="o">O</p>
+        </div>
+        <div>
+            <p id="x">X</p>
+            <p id="o">O</p>
+        </div>
+        <div>
+            <p id="x">X</p>
+            <p id="o">O</p>
+        </div>
+        <div>
+            <p id="x">X</p>
+            <p id="o">O</p>
+        </div>
+        <div>
+            <p id="x">X</p>
+            <p id="o">O</p>
+        </div>
+    </section>
+</body>
+<script>
+    let box = document.getElementById('box')
+    for (let i = 0; i < 10; i++) {
+        let s = box.children[i]
+        let p = document.querySelectorAll('#box>div>p')
+        let x = document.getElementById('x')
+        let o = document.getElementById('o')
+        p.forEach(val => {
+            // ---------------style---------------
+            val.style.width = 'fit-content'
+            val.style.height = 'fit-content'
+            val.style.position = 'absolute'
+            val.style.top = '50%'
+            val.style.left = '50%'
+            val.style.transform = 'translate(-50%,-50%)'
+            val.style.color = 'white'
+            val.style.fontSize = '60px'
+            val.style.display = 'none'
+            // -----------------------------------
+        })
+
+    }
+
+
+</script>
+
+</html>
