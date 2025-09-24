@@ -13,76 +13,89 @@
     <section id="box"
         class="size-[300px] md:size-[500px] flex flex-wrap place-content-center border border-white rounded-[10px] overflow-hidden *:size-1/3 *:border *:border-white *:relative *:hover:bg-yellow-800">
         <div>
-            <p id="x">X</p>
-            <p id="o">O</p>
+            <!-- <p id="x">X</p>
+            <p id="o">O</p> -->
+            <p></p>
         </div>
         <div>
-            <p id="x">X</p>
-            <p id="o">O</p>
+            <!-- <p id="x">X</p>
+            <p id="o">O</p> -->
+            <p></p>
         </div>
         <div>
-            <p id="x">X</p>
-            <p id="o">O</p>
+            <!-- <p id="x">X</p>
+            <p id="o">O</p> -->
+            <p></p>
         </div>
         <div>
-            <p id="x">X</p>
-            <p id="o">O</p>
+            <!-- <p id="x">X</p>
+            <p id="o">O</p> -->
+            <p></p>
         </div>
         <div>
-            <p id="x">X</p>
-            <p id="o">O</p>
+            <!-- <p id="x">X</p>
+            <p id="o">O</p> -->
+            <p></p>
         </div>
         <div>
-            <p id="x">X</p>
-            <p id="o">O</p>
+            <!-- <p id="x">X</p>
+            <p id="o">O</p> -->
+            <p></p>
         </div>
         <div>
-            <p id="x">X</p>
-            <p id="o">O</p>
+            <!-- <p id="x">X</p>
+            <p id="o">O</p> -->
+            <p></p>
         </div>
         <div>
-            <p id="x">X</p>
-            <p id="o">O</p>
+            <!-- <p id="x">X</p>
+            <p id="o">O</p> -->
+            <p></p>
         </div>
         <div>
-            <p id="x">X</p>
-            <p id="o">O</p>
+            <!-- <p id="x">X</p>
+            <p id="o">O</p> -->
+            <p></p>
         </div>
     </section>
 </body>
 <script>
-    let box = document.getElementById('box')
+    let box = document.getElementById('box');
+    let firstMove = false;
+
     for (let i = 0; i < 10; i++) {
-        let d = document.querySelectorAll('#box>div')
-        let p = document.querySelectorAll('#box>div>p')
-        let x = document.getElementById('x')
-        let o = document.getElementById('o')
+        let d = document.querySelectorAll('#box > div');
+        let p = document.querySelectorAll('#box > div > p');
+
         d.forEach((val, i) => {
-            p.forEach((Pval) => {
-                // ---------------style---------------
-                Pval.style.width = 'fit-content'
-                Pval.style.height = 'fit-content'
-                Pval.style.position = 'absolute'
-                Pval.style.top = '50%'
-                Pval.style.left = '50%'
-                Pval.style.transform = 'translate(-50%,-50%)'
-                Pval.style.color = 'white'
-                Pval.style.fontSize = '60px'
-                Pval.style.display = 'none'
-                // -----------------------------------
-                let rand = Math.floor(Math.random() * 2)
-                console.log(rand)
-                val.addEventListener('click', () => {
+            let Pval = p[i];
+
+            // ---------------style---------------
+            Pval.style.width = 'fit-content';
+            Pval.style.height = 'fit-content';
+            Pval.style.position = 'absolute';
+            Pval.style.top = '50%';
+            Pval.style.left = '50%';
+            Pval.style.transform = 'translate(-50%,-50%)';
+            Pval.style.color = 'white';
+            Pval.style.fontSize = '60px';
+            Pval.style.display = 'none';
+            // -----------------------------------
+
+            val.addEventListener('click', () => {
+                if (!firstMove) {
+                    Pval.style.display = 'block';
+                    let rand = Math.floor(Math.random() * 2);
                     if (rand == 0) {
-                        o.style.display = 'block'
-                        x.style.display = 'none'
+                        Pval.innerText = 'O'
                     } else {
-                        o.style.display = 'none'
-                        x.style.display = 'block'
+                        Pval.innerText = 'X'
                     }
-                })
-            })
-        })
+
+                    firstMove = true;
+                }
+            });
+        });
     }
 
 
