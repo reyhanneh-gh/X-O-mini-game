@@ -42,42 +42,40 @@
     </section>
 </body>
 <script>
-    let box = document.getElementById('box');
-    let firstMove = false;
+    let box = document.getElementById('box')
+    let firstMove = false
+    let d = document.querySelectorAll('#box > div')
+    let p = document.querySelectorAll('#box > div > p')
 
-    for (let i = 0; i < 10; i++) {
-        let d = document.querySelectorAll('#box > div');
-        let p = document.querySelectorAll('#box > div > p');
+    d.forEach((val, index) => {
+        let Pi = p[index]
 
-        d.forEach((val, index) => {
-            let Pi = p[index];
+        // ---------------style---------------
+        Pi.style.width = 'fit-content'
+        Pi.style.height = 'fit-content'
+        Pi.style.position = 'absolute'
+        Pi.style.top = '50%'
+        Pi.style.left = '50%'
+        Pi.style.transform = 'translate(-50%,-50%)'
+        Pi.style.color = 'white'
+        Pi.style.fontSize = '60px'
+        Pi.style.display = 'none'
+        // -----------------------------------
 
-            // ---------------style---------------
-            Pi.style.width = 'fit-content';
-            Pi.style.height = 'fit-content';
-            Pi.style.position = 'absolute';
-            Pi.style.top = '50%';
-            Pi.style.left = '50%';
-            Pi.style.transform = 'translate(-50%,-50%)';
-            Pi.style.color = 'white';
-            Pi.style.fontSize = '60px';
-            Pi.style.display = 'none';
-            // -----------------------------------
-
-            val.addEventListener('click', () => {
-                if (!firstMove) {
-                    Pi.style.display = 'block';
-                    let rand = Math.floor(Math.random() * 2);
-                    if (rand == 0) {
-                        Pi.innerText = 'O'
-                    } else {
-                        Pi.innerText = 'X'
-                    }
-                    firstMove = true;
+        val.addEventListener('click', () => {
+            if (!firstMove) {
+                Pi.style.display = 'block'
+                let rand = Math.floor(Math.random() * 2)
+                if (rand == 0) {
+                    Pi.innerText = 'O'
+                } else {
+                    Pi.innerText = 'X'
                 }
-            });
-        });
-    }
+                firstMove = true
+            }
+        })
+    })
+
 
 
 </script>
