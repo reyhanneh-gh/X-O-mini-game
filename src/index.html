@@ -46,6 +46,7 @@
     let firstMove = false
     let d = document.querySelectorAll('#box > div')
     let p = document.querySelectorAll('#box > div > p')
+    let x = 0
 
     d.forEach((val, index) => {
         let Pi = p[index]
@@ -61,17 +62,32 @@
         Pi.style.fontSize = '60px'
         Pi.style.display = 'none'
         // -----------------------------------
-
+        let firstChar = ''
         val.addEventListener('click', () => {
             if (!firstMove) {
                 Pi.style.display = 'block'
                 let rand = Math.floor(Math.random() * 2)
                 if (rand == 0) {
                     Pi.innerText = 'O'
+                    firstChar = 'O'
+                    firstMove = true
                 } else {
                     Pi.innerText = 'X'
+                    firstChar = 'X'
                 }
                 firstMove = true
+            } else {
+                Pi.style.display = 'block'
+                if (x % 2 == 0) {
+                    p[index].style.display = 'block'
+                    p[index].innerText = 'X'
+                } else {
+                    p[index].style.display = 'block'
+                    p[index].innerText = 'O'
+                }
+                x++
+                console.log(x);
+
             }
         })
     })
