@@ -13,48 +13,30 @@
     <section id="box"
         class="size-[300px] md:size-[500px] flex flex-wrap place-content-center border border-white rounded-[10px] overflow-hidden *:size-1/3 *:border *:border-white *:relative *:hover:bg-yellow-800">
         <div>
-            <!-- <p id="x">X</p>
-            <p id="o">O</p> -->
             <p></p>
         </div>
         <div>
-            <!-- <p id="x">X</p>
-            <p id="o">O</p> -->
             <p></p>
         </div>
         <div>
-            <!-- <p id="x">X</p>
-            <p id="o">O</p> -->
             <p></p>
         </div>
         <div>
-            <!-- <p id="x">X</p>
-            <p id="o">O</p> -->
             <p></p>
         </div>
         <div>
-            <!-- <p id="x">X</p>
-            <p id="o">O</p> -->
             <p></p>
         </div>
         <div>
-            <!-- <p id="x">X</p>
-            <p id="o">O</p> -->
             <p></p>
         </div>
         <div>
-            <!-- <p id="x">X</p>
-            <p id="o">O</p> -->
             <p></p>
         </div>
         <div>
-            <!-- <p id="x">X</p>
-            <p id="o">O</p> -->
             <p></p>
         </div>
         <div>
-            <!-- <p id="x">X</p>
-            <p id="o">O</p> -->
             <p></p>
         </div>
     </section>
@@ -67,31 +49,30 @@
         let d = document.querySelectorAll('#box > div');
         let p = document.querySelectorAll('#box > div > p');
 
-        d.forEach((val, i) => {
-            let Pval = p[i];
+        d.forEach((val, index) => {
+            let Pi = p[index];
 
             // ---------------style---------------
-            Pval.style.width = 'fit-content';
-            Pval.style.height = 'fit-content';
-            Pval.style.position = 'absolute';
-            Pval.style.top = '50%';
-            Pval.style.left = '50%';
-            Pval.style.transform = 'translate(-50%,-50%)';
-            Pval.style.color = 'white';
-            Pval.style.fontSize = '60px';
-            Pval.style.display = 'none';
+            Pi.style.width = 'fit-content';
+            Pi.style.height = 'fit-content';
+            Pi.style.position = 'absolute';
+            Pi.style.top = '50%';
+            Pi.style.left = '50%';
+            Pi.style.transform = 'translate(-50%,-50%)';
+            Pi.style.color = 'white';
+            Pi.style.fontSize = '60px';
+            Pi.style.display = 'none';
             // -----------------------------------
 
             val.addEventListener('click', () => {
                 if (!firstMove) {
-                    Pval.style.display = 'block';
+                    Pi.style.display = 'block';
                     let rand = Math.floor(Math.random() * 2);
                     if (rand == 0) {
-                        Pval.innerText = 'O'
+                        Pi.innerText = 'O'
                     } else {
-                        Pval.innerText = 'X'
+                        Pi.innerText = 'X'
                     }
-
                     firstMove = true;
                 }
             });
