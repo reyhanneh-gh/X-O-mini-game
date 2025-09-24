@@ -44,11 +44,12 @@
 <script>
     let box = document.getElementById('box')
     let firstMove = false
+    let Char = ""
+    let nextChar = ""
     let d = document.querySelectorAll('#box > div')
     let p = document.querySelectorAll('#box > div > p')
     let x = 0
-
-    d.forEach((val, index) => {
+    d.forEach((val, index, arr) => {
         let Pi = p[index]
 
         // ---------------style---------------
@@ -62,36 +63,24 @@
         Pi.style.fontSize = '60px'
         Pi.style.display = 'none'
         // -----------------------------------
-        let firstChar = ''
+
         val.addEventListener('click', () => {
             if (!firstMove) {
                 Pi.style.display = 'block'
                 let rand = Math.floor(Math.random() * 2)
-                if (rand == 0) {
-                    Pi.innerText = 'O'
-                    firstChar = 'O'
-                    firstMove = true
-                } else {
-                    Pi.innerText = 'X'
-                    firstChar = 'X'
-                }
+                firstChar = rand == 0 ? 'O' : 'X'
+                Pi.innerText = firstChar
                 firstMove = true
+                Char = firstChar
             } else {
-                Pi.style.display = 'block'
-                if (x % 2 == 0) {
-                    p[index].style.display = 'block'
-                    p[index].innerText = 'X'
-                } else {
-                    p[index].style.display = 'block'
-                    p[index].innerText = 'O'
-                }
-                x++
-                console.log(x);
+                p[index].style.display = "block"
+                nextChar = Char == "O" ? "X" : "O"
+                p[index].innerText = nextChar
+                Char = nextChar
 
             }
         })
     })
-
 
 
 </script>
