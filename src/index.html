@@ -11,9 +11,23 @@
 
 <body class="w-full h-[100vh] flex justify-center items-center bg-gray-900">
     <section id="box"
-        class="size-[300px] md:size-[500px] flex flex-wrap place-content-center border border-white rounded-[10px] overflow-hidden *:size-1/3 *:border *:border-white *:relative *:hover:bg-yellow-800">
+        class="size-[300px] md:size-[500px] flex flex-wrap place-content-center relative border border-white rounded-[10px] overflow-hidden *:size-1/3 *:border *:border-white *:relative *:hover:bg-yellow-800">
         <div>
             <p></p>
+            <span id="lineX1" class="lineX"></span>
+            <span id="lineY1" class="lineY"></span>
+        </div>
+        <div>
+            <p></p>
+            <span id="lineY2" class="lineY"></span>
+        </div>
+        <div>
+            <p></p>
+            <span id="lineY3" class="lineY"></span>
+        </div>
+        <div>
+            <p></p>
+            <span id="lineX2" class="lineX"></span>
         </div>
         <div>
             <p></p>
@@ -23,21 +37,15 @@
         </div>
         <div>
             <p></p>
+            <span id="lineX3" class="lineX"></span>
+            <span id="lineXY1" class="lineXY1"></span>
         </div>
         <div>
             <p></p>
         </div>
         <div>
             <p></p>
-        </div>
-        <div>
-            <p></p>
-        </div>
-        <div>
-            <p></p>
-        </div>
-        <div>
-            <p></p>
+            <span id="lineXY2" class="lineXY2"></span>
         </div>
     </section>
 </body>
@@ -65,6 +73,7 @@
         // -----------------------------------
 
         val.addEventListener('click', () => {
+            if (Pi.innerText !== '') return
             if (!firstMove) {
                 Pi.style.display = 'block'
                 let rand = Math.floor(Math.random() * 2)
@@ -79,8 +88,60 @@
                 Char = nextChar
 
             }
+            win()
         })
     })
+    // -----------------lines----------------
+    lineX1 = document.getElementById('lineX1')
+    lineX2 = document.getElementById('lineX2')
+    lineX3 = document.getElementById('lineX3')
+    lineY1 = document.getElementById('lineY1')
+    lineY2 = document.getElementById('lineY2')
+    lineY3 = document.getElementById('lineY3')
+    lineXY1 = document.getElementById('lineXY1')
+    lineXY2 = document.getElementById('lineXY2')
+
+    function win() {
+        let pVal = []
+
+        for (let i = 0; i < p.length; i++) {
+            pVal.push(p[i].innerText)
+        }
+
+        if (pVal[0] == 'X' && pVal[1] == 'X' && pVal[2] == 'X' || pVal[0] == 'O' && pVal[1] == 'O' && pVal[2] == 'O') {
+            lineX1.style.display = 'block'
+            setTimeout(() =>
+                lineX1.style.width = '300%', 10)
+        } else if (pVal[0] == 'X' && pVal[3] == 'X' && pVal[6] == 'X' || pVal[0] == 'O' && pVal[3] == 'O' && pVal[6] == 'O') {
+            lineY1.style.display = 'block'
+            setTimeout(() =>
+                lineY1.style.height = '300%', 10)
+        } else if (pVal[1] == 'X' && pVal[4] == 'X' && pVal[7] == 'X' || pVal[1] == 'O' && pVal[4] == 'O' && pVal[7] == 'O') {
+            lineY2.style.display = 'block'
+            setTimeout(() =>
+                lineY2.style.height = '300%', 10)
+        } else if (pVal[3] == 'X' && pVal[4] == 'X' && pVal[5] == 'X' || pVal[3] == 'O' && pVal[4] == 'O' && pVal[5] == 'O') {
+            lineX2.style.display = 'block'
+            setTimeout(() =>
+                lineX2.style.width = '300%', 10)
+        } else if (pVal[2] == 'X' && pVal[5] == 'X' && pVal[8] == 'X' || pVal[2] == 'O' && pVal[5] == 'O' && pVal[8] == 'O') {
+            lineY3.style.display = 'block'
+            setTimeout(() =>
+                lineY3.style.height = '300%', 10)
+        } else if (pVal[6] == 'X' && pVal[7] == 'X' && pVal[8] == 'X' || pVal[6] == 'O' && pVal[7] == 'O' && pVal[8] == 'O') {
+            lineX3.style.display = 'block'
+            setTimeout(() =>
+                lineX3.style.width = '300%', 10)
+        } else if (pVal[2] == 'X' && pVal[4] == 'X' && pVal[6] == 'X' || pVal[2] == 'O' && pVal[4] == 'O' && pVal[6] == 'O') {
+            lineXY1.style.display = 'block'
+            setTimeout(() =>
+                lineXY1.style.width = '300%', 10)
+        } else if (pVal[0] == 'X' && pVal[4] == 'X' && pVal[8] == 'X' || pVal[0] == 'O' && pVal[4] == 'O' && pVal[8] == 'O') {
+            lineXY2.style.display = 'block'
+            setTimeout(() =>
+                lineXY2.style.width = '300%', 10)
+        }
+    }
 
 
 </script>

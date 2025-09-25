@@ -1,2 +1,57 @@
 @import "tailwindcss";
 /* npx @tailwindcss/cli -i ./src/style/master.css -o ./src/style/output.css --watch */
+
+
+
+/* --------------------over lines----------------------- */
+.lineX {
+    width: 0px;
+    height: 3px;
+    background-color: red;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transition: 1s;
+    display: none;
+    z-index: 1000;
+}
+
+.lineY {
+    width: 3px;
+    height: 0px;
+    background-color: red;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transition: 1s;
+    display: none;
+    z-index: 1000;
+}
+
+.lineXY1 {
+    width: 0px;
+    height: 3px;
+    background-color: red;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: rotate(-45deg);
+    transform-origin: left;
+    transition: 1s;
+    display: none;
+    z-index: 1000;
+}
+
+.lineXY2 {
+    width: 0px;
+    height: 3px;
+    background-color: red;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: rotate(45deg);
+    transform-origin: right;
+    transition: 1s;
+    display: none;
+    z-index: 1000;
+}
