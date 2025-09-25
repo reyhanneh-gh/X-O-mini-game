@@ -153,17 +153,17 @@
         for (let i = 0; i < p.length; i++) {
             p[i].innerText = ""
         }
-        for (i = 0; i < _line.length; i++) {
-            _line[i].style.display = 'none'
-            _line[0].style.width ='0px'
-            _line[1].style.height ='0px'
-            _line[2].style.height ='0px'
-            _line[3].style.height ='0px'
-            _line[4].style.width ='0px'
-            _line[5].style.width ='0px'
-            _line[6].style.width ='0px'
-            _line[7].style.width ='0px'
-        }
+        _line.forEach((val, ind, larr) => {
+            val.style.display = 'none'
+            larr[0].style.width = '0px'
+            larr[1].style.height = '0px'
+            larr[2].style.height = '0px'
+            larr[3].style.height = '0px'
+            larr[4].style.width = '0px'
+            larr[5].style.width = '0px'
+            larr[6].style.width = '0px'
+            larr[7].style.width = '0px'
+        })
         firstMove = 'false'
         Char = ''
         nextChar = ''
