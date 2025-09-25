@@ -7,12 +7,17 @@
     <title>XO mini game</title>
     <link rel="stylesheet" href="style/master.css">
     <link rel="stylesheet" href="style/output.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
 </head>
 
-<body class="w-full h-[100vh] flex flex-wrap justify-center items-center bg-gray-900">
+<body class="w-full h-[100vh] flex flex-wrap justify-center items-center bg-gray-900 favFont favBg py-[30px] relative">
+    <div id="star" class="absolute top-0 left-0 w-full h-full overflow-hidden"></div>
+    <h1 class="w-full text-center text-[30px] text-white">Classic Tic-Tac-Toe</h1>
     <section id="box"
-        class="size-[300px] md:size-[400px] flex flex-wrap justify-center items-center relative border border-white rounded-[10px] overflow-hidden *:size-1/3 *:border *:border-white *:relative *:hover:bg-yellow-800">
-        <div>
+        class="size-[300px] md:size-[400px] flex flex-wrap justify-center items-center relative overflow-hidden *:size-1/3 *:border *:border-white *:relative *:hover:bg-yellow-800 *:bg-[#101828]">
+        <div class="rounded-tl-[10px]">
             <p></p>
             <span id="lineX1" class="lineX"></span>
             <span id="lineY1" class="lineY"></span>
@@ -21,7 +26,7 @@
             <p></p>
             <span id="lineY2" class="lineY"></span>
         </div>
-        <div>
+        <div class="rounded-tr-[10px]">
             <p></p>
             <span id="lineY3" class="lineY"></span>
         </div>
@@ -35,7 +40,7 @@
         <div>
             <p></p>
         </div>
-        <div>
+        <div class="rounded-bl-[10px]">
             <p></p>
             <span id="lineX3" class="lineX"></span>
             <span id="lineXY1" class="lineXY1"></span>
@@ -43,12 +48,13 @@
         <div>
             <p></p>
         </div>
-        <div>
+        <div class="rounded-br-[10px]">
             <p></p>
             <span id="lineXY2" class="lineXY2"></span>
         </div>
     </section>
-    <div class="w-full h-fit flex justify-center">
+    
+    <div class="w-full h-fit flex justify-center z-40">
         <button onclick="restart()"
             class="w-fit h-fit p-2.5 border border-amber-50 rounded-[10px] text-amber-50 cursor-pointer hover:scale-[1.3] duration-300">Restart</button>
     </div>
@@ -93,6 +99,7 @@
                 Char = nextChar
 
             }
+            p[index].innerText == 'O' ? p[index].style.color = "red" : p[index].style.color = "blue"
             win()
         })
     })
@@ -120,23 +127,23 @@
         } else if (pVal[0] == 'X' && pVal[3] == 'X' && pVal[6] == 'X' || pVal[0] == 'O' && pVal[3] == 'O' && pVal[6] == 'O') {
             lineY1.style.display = 'block'
             setTimeout(() =>
-                lineY1.style.height = '300%', 10)
+                lineY1.style.height = '310%', 10)
         } else if (pVal[1] == 'X' && pVal[4] == 'X' && pVal[7] == 'X' || pVal[1] == 'O' && pVal[4] == 'O' && pVal[7] == 'O') {
             lineY2.style.display = 'block'
             setTimeout(() =>
-                lineY2.style.height = '300%', 10)
+                lineY2.style.height = '310%', 10)
         } else if (pVal[3] == 'X' && pVal[4] == 'X' && pVal[5] == 'X' || pVal[3] == 'O' && pVal[4] == 'O' && pVal[5] == 'O') {
             lineX2.style.display = 'block'
             setTimeout(() =>
-                lineX2.style.width = '300%', 10)
+                lineX2.style.width = '310%', 10)
         } else if (pVal[2] == 'X' && pVal[5] == 'X' && pVal[8] == 'X' || pVal[2] == 'O' && pVal[5] == 'O' && pVal[8] == 'O') {
             lineY3.style.display = 'block'
             setTimeout(() =>
-                lineY3.style.height = '300%', 10)
+                lineY3.style.height = '310%', 10)
         } else if (pVal[6] == 'X' && pVal[7] == 'X' && pVal[8] == 'X' || pVal[6] == 'O' && pVal[7] == 'O' && pVal[8] == 'O') {
             lineX3.style.display = 'block'
             setTimeout(() =>
-                lineX3.style.width = '300%', 10)
+                lineX3.style.width = '310%', 10)
         } else if (pVal[2] == 'X' && pVal[4] == 'X' && pVal[6] == 'X' || pVal[2] == 'O' && pVal[4] == 'O' && pVal[6] == 'O') {
             lineXY1.style.display = 'block'
             setTimeout(() =>
@@ -168,7 +175,21 @@
         Char = ''
         nextChar = ''
     }
+    // -------------------------star bg---------------------------
+    let container = document.getElementById('star')
+    let containerW = container.offsetWidth
+    let containerH = container.offsetHeight
 
+    function star() {
+        let star = document.createElement('div')
+        star.classList.add('star')
+        star.style.top = Math.random() * containerH + 'px'
+        star.style.left = Math.random() * containerW + 'px'
+        container.appendChild(star)
+    }
+    for (let i = 1; i < 500; i++) {
+        star()
+    }
 </script>
 
 </html>

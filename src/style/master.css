@@ -1,7 +1,15 @@
 @import "tailwindcss";
+
 /* npx @tailwindcss/cli -i ./src/style/master.css -o ./src/style/output.css --watch */
 
+.favBg {
+    background: #C75773;
+    background: linear-gradient(180deg, rgba(199, 87, 115, 1) 0%, rgba(16, 24, 40, 1) 20%, rgba(16, 24, 40, 1) 80%, rgba(42, 123, 155, 1) 100%);
+}
 
+.favFont {
+    font-family: "Lato", sans-serif;
+}
 
 /* --------------------over lines----------------------- */
 .lineX {
@@ -54,4 +62,27 @@
     transition: 1s;
     display: none;
     z-index: 1000;
+}
+
+/* --------------------stars----------------------- */
+.star {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    border-radius: 50%;
+    background-color: white;
+    opacity: 0.8;
+    animation: shine 5s infinite ease-in-out;
+}
+
+@keyframes shine {
+
+    0%,
+    100% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 1;
+    }
 }
