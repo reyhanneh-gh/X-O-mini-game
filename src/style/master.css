@@ -4,18 +4,31 @@
 
 .favBg {
     background: #C75773;
-    background: linear-gradient(180deg, rgba(199, 87, 115, 1) 0%, rgba(16, 24, 40, 1) 20%, rgba(16, 24, 40, 1) 80%, rgba(42, 123, 155, 1) 100%);
+    background: linear-gradient(180deg, rgb(199, 87, 115) 0%, rgba(16, 24, 40, 1) 20%, rgba(16, 24, 40, 1) 80%, #2a7b9b 100%);
 }
 
-.favFont {
+.btnBg {
+    background: #000000;
+    background: linear-gradient(258deg, #2a7b9b 8%, rgba(199, 87, 115, 1) 100%);
+}
+
+.favFont1 {
     font-family: "Lato", sans-serif;
+}
+
+.favFont2 {
+    font-family: "Jersey 10", sans-serif;
+}
+
+.myShadow {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.645);
 }
 
 /* --------------------over lines----------------------- */
 .lineX {
     width: 0px;
-    height: 3px;
-    background-color: red;
+    height: 5px;
+    background-color: #2aff67;
     position: absolute;
     top: 50%;
     left: 0;
@@ -25,9 +38,9 @@
 }
 
 .lineY {
-    width: 3px;
+    width: 5px;
     height: 0px;
-    background-color: red;
+    background-color: #2aff67;
     position: absolute;
     top: 0;
     left: 50%;
@@ -38,8 +51,8 @@
 
 .lineXY1 {
     width: 0px;
-    height: 3px;
-    background-color: red;
+    height: 5px;
+    background-color: #2aff67;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -52,8 +65,8 @@
 
 .lineXY2 {
     width: 0px;
-    height: 3px;
-    background-color: red;
+    height: 5px;
+    background-color: #2aff67;
     position: absolute;
     bottom: 0;
     right: 0;
@@ -85,4 +98,9 @@
     50% {
         opacity: 1;
     }
+}
+
+/* -------------------------------------------------- */
+#joy {
+    font-size: 50px;
 }
