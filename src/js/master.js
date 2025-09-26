@@ -29,6 +29,8 @@ d.forEach((val, index, arr) => {
             Pi.innerText = firstChar
             firstMove = true
             Char = firstChar
+            console.log(rand);
+            
         } else {
             p[index].style.display = "block"
             nextChar = Char == "O" ? "X" : "O"
